@@ -1,19 +1,61 @@
 body {
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #ffe4f2, #e6f0ff);
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 30px;
 }
 
+/* カード全体 */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 700px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* タイトル */
+.title {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #ff4fa3;
+}
+
+/* サブタイトル */
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 画像エリア */
 .container {
   position: relative;
-  width: 600px;
+  width: 100%;
   margin: auto;
 }
 
 .container img {
   width: 100%;
+  border-radius: 15px;
 }
 
-/* 範囲指定エリア */
+/* 下のメッセージ */
+.footer-message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* 開発パネル（邪魔なら非表示OK） */
+.dev-panel {
+  margin-top: 20px;
+}
+
+/* ===== 既存 ===== */
+
 .person {
   position: absolute;
 }
@@ -27,31 +69,32 @@ body {
   pointer-events: none;
   position: absolute;
 
-  bottom: 150%; /*メッセージの表示位置*/
+  bottom: 130%; /* 少し上げる */
   left: 50%;
-
-  transform: translate(-50%, 5px); /* ←ここが重要 */
+  transform: translate(-50%, 10px);
 
   background: #ffcdf2;
   color: black;
   padding: 10px 14px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 10px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 
   opacity: 0;
   transition: 0.3s;
 
-  white-space: normal;
-  width: 220px;
+  white-space: pre-line; /* 改行対応 */
+
+  width: 240px;
   word-break: break-word;
-  text-align: left;
+
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .person:hover .tooltip {
   opacity: 1;
-  transform: translate(-50%, 0); /* ←ここもセット */
+  transform: translate(-50%, 0);
 }
 
 /* 選択ボックス */
