@@ -103,3 +103,263 @@ body {
   border: 2px dashed red;
   background: rgba(255,0,0,0.1);
 }
+
+
+/* ================================== */
+/* 周りの装飾レイヤー */
+.decorations {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+
+/* チェキ風 */
+.polaroid {
+  position: absolute;
+  width: 300px;
+  background: white;
+  padding: 8px 8px 20px 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transform: rotate(-5deg);
+  transition: 0.3s;
+}
+
+/* 画像 */
+.polaroid img {
+  width: 100%;
+}
+
+/* ふわっと浮く */
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.1);
+  
+}
+
+/* 位置調整（適当に） */
+.p1 {
+  top: -500px;
+  left: -350px;
+  transform: rotate(-10deg);
+}
+
+.p2 {
+  top: -500px;
+  right: -350px;
+  transform: rotate(8deg);
+}
+
+.p3 {
+  bottom: 0px;
+  left: -350px;
+  transform: rotate(-6deg);
+}
+
+.p4 {
+  bottom: 0px;
+  right: -350px;
+  transform: rotate(-6deg);
+}
+
+
+
+.card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 24px;
+  padding: 40px;
+  width: 700px;
+  margin: auto;
+
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #ff4fa3, #7b61ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 10px;
+}
+
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+body::before {
+  background: #ffb6e6;
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  background: #a0c4ff;
+  bottom: -100px;
+  right: -100px;
+}
+
+.sparkle {
+  position: fixed; /* ← absoluteじゃなくてfixedにする */
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+
+  box-shadow: 0 0 10px white, 0 0 20px white; /* ← 光らせる */
+
+  animation: sparkle 3s infinite;
+  z-index: 10; /* ← 前面に出す */
+}
+/* ===== タイムライン全体 ===== */
+.timeline {
+  position: relative;
+  margin-top: 90px;
+  padding: 60px 0;
+}
+
+/* タイトル */
+.timeline-title {
+  font-size: 28px;
+  margin-bottom: 60px;
+
+  background: linear-gradient(90deg, #ff4fa3, #7b61ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 縦ライン */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 50;
+  width: 3px;
+  height: 70%;
+  background: linear-gradient(#ff4fa3, #7b61ff);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* ドット */
+.timeline-dot {
+  position: absolute;
+  left: 50%; /* 縦線の中心に固定 */
+  top: 50%;  /* timeline-item の中央 */
+  transform: translate(-50%, -50%); /* 中央揃え */
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid #ff4fa3;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* 各アイテム */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+
+/* 左右交互 */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+
+
+/* 中身 */
+.timeline-content {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 20px;
+  border-radius: 15px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  transition: 0.6s;
+  opacity: 1;
+  transform: translateY(40px);
+}
+
+/* 年 */
+.year {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4fa3;
+}
+
+/* 表示時 */
+.timeline-item.show .timeline-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(#ff4fa3, #7b61ff);
+  transform: translateX(-50%);
+  z-index: 1;
+} */
+
+
+/* .timeline-content {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+} */
+
+/* ドットを線上に固定
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%; /* アイテム内の中央ではなく、タイムライン上の中央にしたい場合は JS で調整可能 */
+  /* transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid #ff4fa3;
+  border-radius: 50%;
+  z-index: 2;
+} */ 
+
+/* 左右交互のドットは不要になるのでコメントアウト */
+/*
+.timeline-item:nth-child(odd)::before {
+  right: -6px;
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -6px;
+}
+*/

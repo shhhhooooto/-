@@ -143,6 +143,7 @@ tooltip.innerText = `【${member.name}】\n${member.message}`;
 renderMembers();
 
 
+
 // ----------------
 // モード切替
 // ----------------
@@ -161,10 +162,13 @@ toggleBtn.addEventListener("click", () => {
   });
 });
 
+
+
 // ----------------
 // 座標取得（ドラッグで範囲）
 // ----------------
 let startX, startY, box;
+
 
 container.addEventListener("mousedown", (e) => {
   if (!isEditMode) return;
@@ -227,3 +231,4 @@ container.addEventListener("mouseup", (e) => {
   box = null;
 
 });
+
